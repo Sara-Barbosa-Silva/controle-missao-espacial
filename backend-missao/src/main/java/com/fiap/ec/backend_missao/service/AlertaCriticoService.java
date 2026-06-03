@@ -23,4 +23,16 @@ public class AlertaCriticoService {
     public AlertaCritico salvar(AlertaCritico alertaCritico) {
         return alertaCriticoRepository.save(alertaCritico);
     }
+
+    public AlertaCritico atualizar(Long id, AlertaCritico alertaAtualizado) {
+        AlertaCritico alertaExistente = alertaCriticoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Alerta não encontrado"));
+
+        alertaExistente.setDescricao(alertaAtualizado.getDescricao());
+        alertaExistente.setNivel(alertaAtualizado.getNivel());
+        alertaExistente.setStatus(alertaAtualizado.getStatus());
+        alertaExistente.setDataHora(alertaAtualizado.getDataHora());
+
+        return alertaCriticoRepository.save(alertaExistente);
+    }
 }

@@ -110,10 +110,6 @@ export function GerenciamentoMissaoScreen() {
             </Text>
 
             <Text style={styles.itemResumo}>
-              Alertas: {alertasCriticos}
-            </Text>
-
-            <Text style={styles.itemResumo}>
               Eventos operacionais: {eventos.length}
             </Text>
           </View>
