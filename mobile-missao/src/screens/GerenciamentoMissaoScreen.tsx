@@ -1,13 +1,12 @@
 import { useFocusEffect } from "@react-navigation/native";
 import { useCallback, useState } from "react";
 import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from "react-native";
-import { AlertaCritico, EventoOperacional, Sensor, SistemaMonitorado } from "../interfaces";
-import { listarAlertas, listarEventos, listarSensores, listarSistemas } from "../services";
+import { AlertaCritico, Sensor, SistemaMonitorado } from "../interfaces";
+import { listarAlertas, listarSensores, listarSistemas } from "../services";
 
 export function GerenciamentoMissaoScreen() {
   const [sensores, setSensores] = useState<Sensor[]>([]);
   const [sistemas, setSistemas] = useState<SistemaMonitorado[]>([]);
-  const [eventos, setEventos] = useState<EventoOperacional[]>([]);
   const [alertas, setAlertas] = useState<AlertaCritico[]>([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState("");
@@ -17,17 +16,15 @@ export function GerenciamentoMissaoScreen() {
       setCarregando(true);
       setErro("");
 
-      const [dadosSensores, dadosSistemas, dadosEventos, dadosAlertas] =
+      const [dadosSensores, dadosSistemas, dadosAlertas] =
         await Promise.all([
           listarSensores(),
           listarSistemas(),
-          listarEventos(),
           listarAlertas(),
         ]);
 
       setSensores(dadosSensores);
       setSistemas(dadosSistemas);
-      setEventos(dadosEventos);
       setAlertas(dadosAlertas);
     } catch {
       setErro("Não foi possível carregar os dados da missão.");
@@ -92,10 +89,6 @@ export function GerenciamentoMissaoScreen() {
               <Text style={styles.label}>Alertas abertos</Text>
             </View>
 
-            <View style={styles.card}>
-              <Text style={styles.numero}>{eventos.length}</Text>
-              <Text style={styles.label}>Eventos registrados</Text>
-            </View>
           </View>
 
           <View style={styles.secao}>
@@ -107,10 +100,6 @@ export function GerenciamentoMissaoScreen() {
 
             <Text style={styles.itemResumo}>
               Sistemas monitorados: {sistemas.length}
-            </Text>
-
-            <Text style={styles.itemResumo}>
-              Eventos operacionais: {eventos.length}
             </Text>
           </View>
 
@@ -166,13 +155,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   grid: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 12,
-    marginBottom: 20,
+  flexDirection: "row",
+  justifyContent: "space-between",
+  gap: 12,
+  marginBottom: 20,
   },
   card: {
-    width: "47%",
+    flex: 1,
     backgroundColor: "#ffffff",
     padding: 16,
     borderRadius: 12,
