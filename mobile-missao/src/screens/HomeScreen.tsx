@@ -41,13 +41,6 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.botao}
-          onPress={() => navigation.navigate("Eventos")}
-        >
-          <Text style={styles.textoBotao}> Eventos</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
           style={styles.botaoAlerta}
           onPress={() => navigation.navigate("Alertas")}
         >

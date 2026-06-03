@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { HomeScreen } from "../screens/HomeScreen";
 import { SensoresScreen } from "../screens/SensoresScreen";
 import { SistemasScreen } from "../screens/SistemasScreen";
-import { EventosScreen } from "../screens/EventosScreen";
 import { AlertasScreen } from "../screens/AlertasScreen";
 import { CadastroSensorScreen } from "../screens/CadastroSensorScreen";
 import { GerenciamentoMissaoScreen } from "../screens/GerenciamentoMissaoScreen";
@@ -15,7 +14,6 @@ export type RootStackParamList = {
   Home: undefined;
   Sensores: undefined;
   Sistemas: undefined;
-  Eventos: undefined;
   Alertas: undefined;
   CadastroSensor: undefined;
   GerenciamentoMissao: undefined;
@@ -50,12 +48,6 @@ export function AppNavigator() {
         <Stack.Screen
           name="Sistemas"
           component={SistemasScreen}
-          options={{ title: "" }}
-        />
-
-        <Stack.Screen
-          name="Eventos"
-          component={EventosScreen}
           options={{ title: "" }}
         />
 
