@@ -9,6 +9,7 @@ import { CadastroSensorScreen } from "../screens/CadastroSensorScreen";
 import { GerenciamentoMissaoScreen } from "../screens/GerenciamentoMissaoScreen";
 import { EditarSensorScreen } from "../screens/EditarSensorScreen";
 import { Sensor } from "../interfaces";
+import { CadastroSistemaScreen } from "../screens/CadastroSistemaScreen";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -18,6 +19,7 @@ export type RootStackParamList = {
   CadastroSensor: undefined;
   GerenciamentoMissao: undefined;
   EditarSensor: { sensor: Sensor };
+  CadastroSistema: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -68,6 +70,12 @@ export function AppNavigator() {
           component={EditarSensorScreen}
           options={{ title: "" }}
         />
+        <Stack.Screen
+          name="CadastroSistema"
+          component={CadastroSistemaScreen}
+          options={{ title: "" }}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

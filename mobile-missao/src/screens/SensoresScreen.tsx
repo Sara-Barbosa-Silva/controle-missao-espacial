@@ -62,18 +62,18 @@ export function SensoresScreen({ navigation }: SensoresScreenProps) {
     const classificacao = classificarLeitura(sensor, sensor.valorAtual);
 
     if (classificacao === "critica") {
-      return " crítica";
+      return " Crítica";
     }
 
     if (classificacao === "atencao") {
-      return " atenção";
+      return " Atenção";
     }
 
     if (classificacao === "sem_limite") {
       return "sensor sem limites cadastrados";
     }
 
-    return " normal";
+    return " Normal";
   }
 
   function estiloClassificacao(sensor: Sensor) {
@@ -92,6 +92,24 @@ export function SensoresScreen({ navigation }: SensoresScreenProps) {
     }
 
     return styles.classificacaoNormal;
+  }
+
+  function estiloClassificacaoInline(sensor: Sensor) {
+    const classificacao = classificarLeitura(sensor, sensor.valorAtual);
+
+    if (classificacao === "critica") {
+      return styles.classificacaoCriticaInline;
+    }
+
+    if (classificacao === "atencao") {
+      return styles.classificacaoAtencaoInline;
+    }
+
+    if (classificacao === "sem_limite") {
+      return styles.classificacaoSemLimiteInline;
+    }
+
+    return styles.classificacaoNormalInline;
   }
 
   async function atualizarLeitura(sensor: Sensor) {
@@ -201,13 +219,17 @@ export function SensoresScreen({ navigation }: SensoresScreenProps) {
             <Text style={styles.nome}>{item.nome}</Text>
 
             <Text style={styles.info}>
-              Leitura: {item.valorAtual} {item.unidadeMedida}
+              Status:
+              <Text style={item.ativo ? styles.ativoInline : styles.inativoInline}>
+                {item.ativo ? " Ativo" : " Inativo"}
+              </Text>
             </Text>
-            <Text style={item.ativo ? styles.ativo : styles.inativo}>
-              Status: {item.ativo ? " ativo" : "inativo"}
-            </Text>
-            <Text style={estiloClassificacao(item)}>
-              Situação: {textoClassificacao(item)}
+
+            <Text style={styles.info}>
+              Situação:
+              <Text style={estiloClassificacaoInline(item)}>
+                {textoClassificacao(item)}
+              </Text>
             </Text>
 
             <TextInput
@@ -351,4 +373,33 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginTop: 8,
   },
+  ativoInline: {
+    color: "#16a34a",
+    fontWeight: "bold",
+  },
+
+  inativoInline: {
+    color: "#dc2626",
+    fontWeight: "bold",
+  },
+
+  classificacaoNormalInline: {
+    color: "#16a34a",
+    fontWeight: "bold",
+  },
+
+  classificacaoAtencaoInline: {
+    color: "#ca8a04",
+    fontWeight: "bold",
+  },
+
+  classificacaoCriticaInline: {
+    color: "#dc2626",
+    fontWeight: "bold",
+  },
+
+  classificacaoSemLimiteInline: {
+    color: "#64748b",
+    fontWeight: "bold",
+  },  
 });
