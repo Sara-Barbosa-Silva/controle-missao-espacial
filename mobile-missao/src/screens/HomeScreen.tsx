@@ -16,7 +16,7 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
         <Text style={styles.icone}>🚀</Text>
         <Text style={styles.titulo}>Controle de Missão Espacial</Text>
         <Text style={styles.subtitulo}>
-          Sistema para monitoramento de sensores, sistemas, eventos e alertas
+          Sistema para monitoramento de sensores, sistemas e alertas
         </Text>
 
         <TouchableOpacity

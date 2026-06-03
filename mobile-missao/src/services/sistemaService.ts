@@ -12,3 +12,11 @@ export const cadastrarSistema = async (
   const response = await api.post<SistemaMonitorado>("/sistemas", sistema);
   return response.data;
 };
+
+export const atualizarSistema = async (
+  id: number,
+  sistema: Omit<SistemaMonitorado, "id">
+): Promise<SistemaMonitorado> => {
+  const response = await api.put<SistemaMonitorado>(`/sistemas/${id}`, sistema);
+  return response.data;
+};
