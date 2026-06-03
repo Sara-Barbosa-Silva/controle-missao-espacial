@@ -3,7 +3,9 @@ package com.fiap.ec.backend_missao.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,5 +31,10 @@ public class SensorController {
     @PostMapping
     public Sensor salvar(@RequestBody Sensor sensor) {
         return sensorService.salvar(sensor);
+    }
+
+    @PutMapping("/{id}")
+    public Sensor atualizar(@PathVariable Long id, @RequestBody Sensor sensor) {
+        return sensorService.atualizar(id, sensor);
     }
 }

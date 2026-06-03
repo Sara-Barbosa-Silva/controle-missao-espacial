@@ -3,7 +3,7 @@ import { StatusAlerta } from "../types/statusAlerta";
 
 export interface AlertaCritico {
   id: number;
-  titulo: string;
+  titulo?: string;
   descricao: string;
   nivel: NivelAlerta;
   status: StatusAlerta;

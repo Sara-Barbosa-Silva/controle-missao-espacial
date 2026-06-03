@@ -27,4 +27,6 @@ public class Sensor {
     private String unidadeMedida;
     private Double valorAtual;
     private Boolean ativo;
+    private Double limiteAtencao;
+    private Double limiteCritico;
 }
