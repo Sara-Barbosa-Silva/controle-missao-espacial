@@ -34,13 +34,11 @@ export function GalaxyBackground() {
         style={StyleSheet.absoluteFill}
       />
 
-      {/* Nebulosas */}
       <View style={[styles.nebulosa, styles.nebulosaRoxa1]} />
       <View style={[styles.nebulosa, styles.nebulosaAzul]} />
       <View style={[styles.nebulosa, styles.nebulosaRosa]} />
       <View style={[styles.nebulosa, styles.nebulosaRoxa2]} />
 
-      {/* Estrelas pequenas */}
       {estrelas.map((estrela) => (
         <View
           key={`estrela-${estrela.id}`}
@@ -58,7 +56,6 @@ export function GalaxyBackground() {
         />
       ))}
 
-      {/* Estrelas brilhantes */}
       {estrelasBrilhantes.map((estrela) => (
         <View
           key={`estrela-brilhante-${estrela.id}`}

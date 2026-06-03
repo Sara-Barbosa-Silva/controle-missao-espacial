@@ -7,6 +7,7 @@ import { SistemasScreen } from "../screens/SistemasScreen";
 import { EventosScreen } from "../screens/EventosScreen";
 import { AlertasScreen } from "../screens/AlertasScreen";
 import { CadastroSensorScreen } from "../screens/CadastroSensorScreen";
+import { GerenciamentoMissaoScreen } from "../screens/GerenciamentoMissaoScreen";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -15,6 +16,7 @@ export type RootStackParamList = {
   Eventos: undefined;
   Alertas: undefined;
   CadastroSensor: undefined;
+  GerenciamentoMissao: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -26,32 +28,44 @@ export function AppNavigator() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: "Controle de Missão" }}
+          options={{ headerShown: false }}
         />
+
+        <Stack.Screen
+          name="GerenciamentoMissao"
+          component={GerenciamentoMissaoScreen}
+          options={{ title: "" }}
+          
+        />
+
         <Stack.Screen
           name="Sensores"
           component={SensoresScreen}
-          options={{ title: "Sensores" }}
+          options={{ title: "" }}
         />
+
         <Stack.Screen
           name="Sistemas"
           component={SistemasScreen}
-          options={{ title: "Sistemas Monitorados" }}
+          options={{ title: "" }}
         />
+
         <Stack.Screen
           name="Eventos"
           component={EventosScreen}
-          options={{ title: "Eventos Operacionais" }}
+          options={{ title: "" }}
         />
+
         <Stack.Screen
           name="Alertas"
           component={AlertasScreen}
-          options={{ title: "Alertas Críticos" }}
+          options={{ title: "" }}
         />
+
         <Stack.Screen
           name="CadastroSensor"
           component={CadastroSensorScreen}
-          options={{ title: "Cadastrar Sensor" }}
+          options={{ title: "" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

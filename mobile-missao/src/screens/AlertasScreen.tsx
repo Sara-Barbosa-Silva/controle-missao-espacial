@@ -32,7 +32,7 @@ export function AlertasScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Alertas Críticos</Text>
+      <Text style={styles.titulo}>Alertas</Text>
 
       {carregando && <ActivityIndicator size="large" color="#dc2626" />}
 

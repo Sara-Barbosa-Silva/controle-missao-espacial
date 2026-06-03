@@ -16,9 +16,16 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
         <Text style={styles.icone}>🚀</Text>
         <Text style={styles.titulo}>Controle de Missão Espacial</Text>
         <Text style={styles.subtitulo}>
-          Sistema integrado para monitoramento de sensores, sistemas, eventos e alertas
+          Sistema para monitoramento de sensores, sistemas, eventos e alertas
         </Text>
 
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={() => navigation.navigate("GerenciamentoMissao")}
+        > 
+          <Text style={styles.textoBotao}>Central de Comando</Text>
+        </TouchableOpacity>
+        
         <TouchableOpacity
           style={styles.botao}
           onPress={() => navigation.navigate("Sensores")}
@@ -45,13 +52,6 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
           onPress={() => navigation.navigate("Alertas")}
         >
           <Text style={styles.textoBotao}>🚨 Alertas </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.botaoSecundario}
-          onPress={() => navigation.navigate("CadastroSensor")}
-        >
-          <Text style={styles.textoBotaoSecundario}>+ Cadastrar Sensor</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -115,25 +115,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#f87171",
   },
-
-  botaoSecundario: {
-    backgroundColor: "#f8fafc",
-    padding: 16,
-    borderRadius: 16,
-    marginTop: 8,
-  },
-
+  
   textoBotao: {
     color: "#ffffff",
     fontWeight: "bold",
     textAlign: "center",
     fontSize: 16,
   },
-
-  textoBotaoSecundario: {
-    color: "#111827",
-    fontWeight: "bold",
-    textAlign: "center",
-    fontSize: 16,
-  },
+  
 });
