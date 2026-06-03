@@ -3,7 +3,9 @@ package com.fiap.ec.backend_missao.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,5 +31,13 @@ public class AlertaCriticoController {
     @PostMapping
     public AlertaCritico salvar(@RequestBody AlertaCritico alertaCritico) {
         return alertaCriticoService.salvar(alertaCritico);
+    }
+
+    @PutMapping("/{id}")
+    public AlertaCritico atualizar(
+            @PathVariable Long id,
+            @RequestBody AlertaCritico alertaCritico
+    ) {
+        return alertaCriticoService.atualizar(id, alertaCritico);
     }
 }

@@ -1,14 +1,25 @@
 import { AlertaCritico } from "../interfaces";
+import { StatusAlerta } from "../types/statusAlerta";
 import { api } from "./api";
 
-export const listarAlertas = async (): Promise<AlertaCritico[]> => {
+export async function listarAlertas() {
   const response = await api.get<AlertaCritico[]>("/alertas");
   return response.data;
-};
+}
 
-export const cadastrarAlerta = async (
-  alerta: Omit<AlertaCritico, "id">
-): Promise<AlertaCritico> => {
+export async function cadastrarAlerta(alerta: Omit<AlertaCritico, "id">) {
   const response = await api.post<AlertaCritico>("/alertas", alerta);
   return response.data;
-};
+}
+
+export async function atualizarAlerta(
+  alerta: AlertaCritico,
+  novoStatus: StatusAlerta
+) {
+  const response = await api.put<AlertaCritico>(`/alertas/${alerta.id}`, {
+    ...alerta,
+    status: novoStatus,
+  });
+
+  return response.data;
+}
