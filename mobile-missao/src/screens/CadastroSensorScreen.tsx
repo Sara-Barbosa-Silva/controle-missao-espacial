@@ -1,14 +1,6 @@
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useState } from "react";
-import {
-  Alert,
-  StyleSheet,
-  Switch,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Alert, StyleSheet, Switch, Text, TextInput, TouchableOpacity, View} from "react-native";
 
 import { RootStackParamList } from "../navigation/AppNavigator";
 import { cadastrarSensor } from "../services";

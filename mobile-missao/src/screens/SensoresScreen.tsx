@@ -1,14 +1,7 @@
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useFocusEffect } from "@react-navigation/native";
 import { useCallback, useState } from "react";
-import {
-  ActivityIndicator,
-  FlatList,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { ActivityIndicator, FlatList, StyleSheet, Text, TouchableOpacity, View,} from "react-native";
 
 import { Sensor } from "../interfaces";
 import { RootStackParamList } from "../navigation/AppNavigator";
