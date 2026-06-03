@@ -12,3 +12,11 @@ export const cadastrarSensor = async (
   const response = await api.post<Sensor>("/sensores", sensor);
   return response.data;
 };
+
+export const atualizarSensor = async (
+  id: number,
+  sensor: Omit<Sensor, "id">
+): Promise<Sensor> => {
+  const response = await api.put<Sensor>(`/sensores/${id}`, sensor);
+  return response.data;
+};

@@ -16,9 +16,11 @@ export function CadastroSensorScreen({ navigation }: CadastroSensorScreenProps) 
   const [valorAtual, setValorAtual] = useState("");
   const [ativo, setAtivo] = useState(true);
   const [salvando, setSalvando] = useState(false);
+  const [limiteAtencao, setLimiteAtencao] = useState("");
+  const [limiteCritico, setLimiteCritico] = useState("");
 
   async function salvarSensor() {
-    if (!nome || !tipo || !unidadeMedida || !valorAtual) {
+    if (!nome || !tipo || !unidadeMedida || !valorAtual || !limiteAtencao || !limiteCritico) {
       Alert.alert("Atenção", "Preencha todos os campos.");
       return;
     }
@@ -31,6 +33,8 @@ export function CadastroSensorScreen({ navigation }: CadastroSensorScreenProps) 
         tipo,
         unidadeMedida,
         valorAtual: Number(valorAtual),
+        limiteAtencao: Number(limiteAtencao),
+        limiteCritico: Number(limiteCritico),
         ativo,
       });
 
@@ -80,6 +84,22 @@ export function CadastroSensorScreen({ navigation }: CadastroSensorScreenProps) 
         placeholder="Valor atual"
         value={valorAtual}
         onChangeText={setValorAtual}
+        keyboardType="numeric"
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Limite de atenção"
+        value={limiteAtencao}
+        onChangeText={setLimiteAtencao}
+        keyboardType="numeric"
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Limite crítico"
+        value={limiteCritico}
+        onChangeText={setLimiteCritico}
         keyboardType="numeric"
       />
 

@@ -4,5 +4,7 @@ export interface Sensor {
   tipo: string;
   unidadeMedida: string;
   valorAtual: number;
+  limiteAtencao: number;
+  limiteCritico: number;
   ativo: boolean;
 }
