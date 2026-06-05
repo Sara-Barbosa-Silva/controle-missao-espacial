@@ -42,18 +42,13 @@ export function GerenciamentoMissaoScreen() {
   const sensoresAtivos = sensores.filter((sensor) => sensor.ativo).length;
   const sistemasEmRisco = sistemas.filter((sistema) => sistema.status === "atencao" || sistema.status === "critico" ).length;
   const alertasAbertos = alertas.filter((alerta) => alerta.status === "aberto").length;
-  const alertasCriticos = alertas.filter((alerta) => alerta.nivel === "critico").length;
-
+  
   function definirStatusMissao() {
-    if (alertasCriticos > 0 || sistemasEmRisco > 0) {
+    if (alertasAbertos > 0 || sistemasEmRisco > 0) {
       return "Atenção operacional";
     }
-
-    if (alertasAbertos > 0) {
-      return "Monitoramento necessário";
-    }
-
-    return "Operação estável";
+    else  
+      return "Operação estável";
   }
 
   const statusMissao = definirStatusMissao();
@@ -108,7 +103,7 @@ export function GerenciamentoMissaoScreen() {
 
             <Text style={styles.texto}>
               {statusMissao === "Operação estável"
-                ? "Todos os indicadores principais estão dentro do esperado"
+                ? "Todos os indicadores estão dentro do esperado"
                 : "Verifique os alertas e sistemas monitorados"}
             </Text>
           </View>
