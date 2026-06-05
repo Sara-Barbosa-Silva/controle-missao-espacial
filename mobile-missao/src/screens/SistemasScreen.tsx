@@ -69,6 +69,22 @@ export function SistemasScreen({ navigation }: SistemasScreenProps) {
     return styles.statusOperacional;
   }
 
+  function estiloStatusInline(status: StatusSistema) {
+    if (status === "critico") {
+      return styles.statusCriticoInline;
+    }
+
+    if (status === "atencao") {
+      return styles.statusAtencaoInline;
+    }
+
+    if (status === "inativo") {
+      return styles.statusInativoInline;
+    }
+
+    return styles.statusOperacionalInline;
+  }
+
   async function alterarStatusSistema(
     sistema: SistemaMonitorado,
     novoStatus: StatusSistema
@@ -144,10 +160,12 @@ export function SistemasScreen({ navigation }: SistemasScreenProps) {
             <Text style={styles.nome}>{item.nome}</Text>
 
             <Text style={styles.descricao}>{item.descricao}</Text>
-
-            <Text style={styles.label}>Status:</Text>
-            <Text style={estiloStatus(item.status)}>
-              {textoStatus(item.status)}
+            
+            <Text style={styles.label}>
+              Status:{" "}
+              <Text style={estiloStatusInline(item.status)}>
+                {textoStatus(item.status)}
+              </Text>
             </Text>
 
             <View style={styles.acoes}>
@@ -199,7 +217,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   texto: {
-    fontSize: 16,
+    fontSize: 18,
     color: "#475569",
     marginTop: 16,
   },
@@ -224,12 +242,12 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   descricao: {
-    fontSize: 14,
+    fontSize: 18,
     color: "#475569",
     marginBottom: 10,
   },
   label: {
-    fontSize: 14,
+    fontSize: 18,
     color: "#64748b",
     marginBottom: 4,
   },
@@ -289,5 +307,24 @@ const styles = StyleSheet.create({
     color: "#dc2626",
     fontWeight: "bold",
     marginBottom: 16,
+  },
+  statusOperacionalInline: {
+    color: "#16a34a",
+    fontWeight: "bold",
+  },
+
+  statusAtencaoInline: {
+    color: "#ca8a04",
+    fontWeight: "bold",
+  },
+
+  statusCriticoInline: {
+    color: "#dc2626",
+    fontWeight: "bold",
+  },
+
+  statusInativoInline: {
+    color: "#64748b",
+    fontWeight: "bold",
   },
 });

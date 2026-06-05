@@ -217,7 +217,10 @@ export function SensoresScreen({ navigation }: SensoresScreenProps) {
         renderItem={({ item }) => (
           <View style={styles.card}>
             <Text style={styles.nome}>{item.nome}</Text>
-
+            
+            <Text style={styles.info}>
+              Leitura: {item.ativo ? `${item.valorAtual} ${item.unidadeMedida}` : "N/A"}
+            </Text>
             <Text style={styles.info}>
               Status:
               <Text style={item.ativo ? styles.ativoInline : styles.inativoInline}>
@@ -278,7 +281,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   texto: {
-    fontSize: 16,
+    fontSize: 18,
     color: "#475569",
     marginTop: 16,
   },
@@ -308,7 +311,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   info: {
-    fontSize: 14,
+    fontSize: 18,
     color: "#475569",
     marginBottom: 4,
   },
@@ -335,7 +338,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 12,
     marginBottom: 10,
-    fontSize: 15,
+    fontSize: 18,
   },
   botaoAtualizar: {
     backgroundColor: "#2563eb",
