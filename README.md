@@ -4,16 +4,16 @@ Projeto desenvolvido para a disciplina **Advanced Programming And Mobile Dev**.
 
 ## Descrição
 
-O projeto **Controle de Missão Espacial** é uma solução integrada para monitoramento de uma missão espacial, composta por um backend em **Java com Spring Boot** e um aplicativo mobile em **React Native com TypeScript**.
+O projeto Controle de Missão Espacial é uma solução integrada para monitoramento de uma missão espacial, composta por um backend em Java com Spring Boot e um aplicativo mobile em React Native com TypeScript
 
 O sistema permite cadastrar, visualizar e gerenciar:
 
 * Sensores da missão
 * Sistemas monitorados
-* Alertas críticos
+* Alertas
 * Painel geral de gerenciamento da missão
 
-A aplicação mobile consome a API do backend utilizando **Axios**, permitindo visualizar dados salvos no banco H2 e enviar novas informações por meio de requisições HTTP.
+A aplicação mobile consome a API do backend utilizando Axios, permitindo visualizar dados salvos no banco H2 e enviar novas informações por meio de requisições HTTP.
 
 ## Integrantes
 
@@ -292,8 +292,11 @@ Se o status for atenção ou crítico
 ↓
 Alerta é gerado automaticamente
 ```
+## Demonstração 
 
-## Observações
 
-* O banco H2 foi mantido no projeto com dados de teste.
-* O foco da aplicação está em sensores, sistemas monitorados, alertas críticos e gerenciamento da missão.
+
+https://github.com/user-attachments/assets/108b91e9-1708-484b-ace7-4dadd6fb5d0a
+
+
+
